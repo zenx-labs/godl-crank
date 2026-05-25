@@ -1,0 +1,42 @@
+[package]
+name = "godl-crank"
+version = "0.1.0"
+edition = "2021"
+description = "Robust, zero-downtime GODL crank bot: per-round sample/reveal/reset_permissionless plus periodic checkpoint + round closing."
+license = "Apache-2.0"
+
+[[bin]]
+name = "godl-crank"
+path = "src/main.rs"
+
+[dependencies]
+# GODL on-chain API (instruction builders, state layouts, PDA helpers).
+# Pinned to a specific commit so anyone gets a reproducible build.
+godl-api = { git = "https://github.com/zenx-labs/godl-program.git", rev = "bf0ca3eccf122efc89870fa75353a69d7a1efb75" }
+
+# Entropy program API + shared types. The entropy rev MUST match the one
+# godl-program pins, otherwise cargo sees two revs of the same git source.
+entropy-api = { git = "https://github.com/zenx-labs/entropy-program.git", rev = "65713b41d81baff99d2e0a76d25727f624a23cc1" }
+entropy-types = "0.0.1"
+
+# Solana — keep at ^2.1 to unify with godl-api's pinned versions.
+solana-account-decoder = "^2.1"
+solana-client = "^2.1"
+solana-program = "^2.1"
+solana-sdk = "^2.1"
+steel = { version = "4.0.3", features = ["spl"] }
+
+anyhow = "1.0"
+bincode = "1.3.3"
+# solana-sdk pulls in `openssl` (via solana-secp256r1-program). Build it from
+# source so the bot compiles with just a C toolchain + perl — no system
+# libssl/pkg-config required. This only enables the `vendored` feature on the
+# openssl crate already in the tree; we don't use it directly.
+openssl = { version = "0.10", features = ["vendored"] }
+clap = { version = "4.5", features = ["derive", "env"] }
+dotenvy = "0.15"
+reqwest = { version = "0.11.24", default-features = false, features = ["json", "rustls-tls"] }
+tokio = { version = "1.37", features = ["full"] }
+
+[profile.release]
+opt-level = 3

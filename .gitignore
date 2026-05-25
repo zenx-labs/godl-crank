@@ -1,0 +1,8 @@
+/target
+.env
+*.json
+!Cargo.lock
+wallets/
+keypair.json
+logs/
+.devcontainer/
