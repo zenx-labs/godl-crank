@@ -1609,12 +1609,13 @@ dependencies = [
 [[package]]
 name = "godl-api"
 version = "3.1.0"
-source = "git+https://github.com/zenx-labs/godl-program.git?rev=bf0ca3eccf122efc89870fa75353a69d7a1efb75#bf0ca3eccf122efc89870fa75353a69d7a1efb75"
+source = "git+https://github.com/zenx-labs/godl-program.git?rev=9e09a1034585e1f05cf1337a2f8f1b1e5665043f#9e09a1034585e1f05cf1337a2f8f1b1e5665043f"
 dependencies = [
  "base64 0.22.1",
  "bytemuck",
  "const-crypto",
  "entropy-api",
+ "godl-mint-api",
  "num_enum",
  "serde",
  "solana-program",
@@ -1644,6 +1645,20 @@ dependencies = [
  "solana-sdk",
  "steel",
  "tokio",
+]
+
+[[package]]
+name = "godl-mint-api"
+version = "3.1.0"
+source = "git+https://github.com/zenx-labs/godl-mint.git?rev=184fd4635e5a35cc3d587651154346f11d9bfb41#184fd4635e5a35cc3d587651154346f11d9bfb41"
+dependencies = [
+ "bytemuck",
+ "num_enum",
+ "serde",
+ "solana-program",
+ "spl-associated-token-account",
+ "spl-token 4.0.2",
+ "steel",
 ]
 
 [[package]]

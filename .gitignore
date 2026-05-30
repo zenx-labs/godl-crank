@@ -6,3 +6,4 @@ wallets/
 keypair.json
 logs/
 .devcontainer/
+examples
