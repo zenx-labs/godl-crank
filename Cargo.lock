@@ -1609,7 +1609,7 @@ dependencies = [
 [[package]]
 name = "godl-api"
 version = "3.1.0"
-source = "git+https://github.com/zenx-labs/godl-program.git?rev=9e09a1034585e1f05cf1337a2f8f1b1e5665043f#9e09a1034585e1f05cf1337a2f8f1b1e5665043f"
+source = "git+https://github.com/zenx-labs/godl-program.git?rev=f437959c0d12144de2a01d20e0ce9ba59dd5391d#f437959c0d12144de2a01d20e0ce9ba59dd5391d"
 dependencies = [
  "base64 0.22.1",
  "bytemuck",

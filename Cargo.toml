@@ -12,7 +12,7 @@ path = "src/main.rs"
 [dependencies]
 # GODL on-chain API (instruction builders, state layouts, PDA helpers).
 # Pinned to a specific commit so anyone gets a reproducible build.
-godl-api = { git = "https://github.com/zenx-labs/godl-program.git", rev = "9e09a1034585e1f05cf1337a2f8f1b1e5665043f" }
+godl-api = { git = "https://github.com/zenx-labs/godl-program.git", rev = "f437959c0d12144de2a01d20e0ce9ba59dd5391d" }
 
 # Entropy program API + shared types. The entropy rev MUST match the one
 # godl-program pins, otherwise cargo sees two revs of the same git source.
